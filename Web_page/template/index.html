@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Fraud Transaction Predictor</title>
+
+    <!-- CSS  -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+      /* .input-field{
+    display: flex;
+    justify-content: center;
+}
+label{
+    margin: 10px 30px;
+}
+input{
+    padding: 10px 20px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+button{
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+h1,h5{
+    text-align: center;
+} */
+/* General Styles */
+
+
+  
+.header.col.s12 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333; /* Adjust the color as needed */
+    margin-bottom: 20px;
+  }
+  
+  .header.col.s12::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #ff6f61; /* Underline color */
+    margin: 10px auto; /* Adjust spacing */
+  }
+  
+  /* Additional styles for the paragraph (optional) */
+  .header.col.s12.light {
+    font-style: italic;
+    color: #555; /* Adjust the color as needed */
+    margin-top: 50px;
+  }
+  
+  /* Additional styles for line break (optional) */
+  .header.col.s12 br {
+    display: none; /* Hide line break on larger screens */
+  }
+  
+  /* Show line break on smaller screens */
+  @media only screen and (max-width: 600px) {
+    .header.col.s12 br {
+      display: block;
+      content: ' ';
+      margin-top: 5px; /* Adjust spacing */
+    }
+  }
+
+
+
+
+
+  /* Additional Styles for Button Animation */
+.btn-large {
+    font-size: 1.2em;
+    width: 100%;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .btn-large:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Optional: Add more specific styles for the button if needed */
+  .btn-large.orange {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+  }
+  
+  .btn-large.orange:hover {
+    background-color: #e66053;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+  .waves-effect.waves-light.orange {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8d534e; /* Text color */
+    text-transform: uppercase;
+    margin-top: 20px; /* Adjust spacing */
+  }
+  
+  /* Optional: Animation on hover */
+  .waves-effect.waves-light.orange:hover {
+    text-decoration: underline; /* Example: Underline on hover */
+  }
+  
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .header {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .row {
+    margin-bottom: 20px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+  }
+  
+  .input-field {
+    margin-bottom: 15px;
+    width: calc(50% - 10px); /* Subtracting margin */
+  }
+  
+  .label-field {
+    margin-bottom: 15px;
+    width: calc(50% - 10px); /* Subtracting margin */
+  }
+  
+  /* Adjust the spacing between input fields */
+  .input-field:not(:last-child),
+  .label-field:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .btn {
+    border-radius: 5px;
+    padding:  1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+  }
+  
+  .btn:hover {
+    background-color: #e66053;
+  }
+  
+  .orange-text {
+    color: #ff6f61;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-large {
+    font-size: 1.2em;
+    width: 100%;
+  }
+  
+  /* Additional styles can be added here */
+  
+    </style>
+  </head>
+
+  <body>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <h1 class="header center orange-text">Credit Card Fraud Detection</h1>
+          <div class="row center">
+            <h5 class="header col s12 light">Predict the probability whether Transaction is Fraudulant or not
+              <br>
+            </h5>
+          </div>
+
+        <div class="row">
+          <form action='http://127.0.0.1:5000/predict' method="post" class="col s12">
+            <div class="row">
+              <div class="input-field col s4">
+                <label for="V14"><b>Transaction_Id</b></label>
+                <br>
+                <input placeholder="ID" name="V14" id="V14" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V4"><b>Trans_1</b></label>
+                <br>
+                <input id="V4" name="V4" placeholder="Amount"  type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V7"><b>Trans_2</b></label>
+                <br>
+                <input id="V7" name="V7" placeholder="Amount" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V17"><b>Trans_3</b></label>
+                <br>
+                <input placeholder="Amount" name="V17" id="V17" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V10"><b>Trans_4</b></label>
+                <br>
+                <input placeholder="Amount" name="V10" id="V10" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V6"><b>Trans_5</b></label>
+                <br>
+                <input placeholder="Amount" name="V6" id="V6" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="Amount"><b>Trans_6</b></label>
+                <br>
+                <input placeholder="Amount" name="Amount" id="Amount" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V1"><b>Trans_7</b></label>
+                <br>
+                <input placeholder="Amount" name="V1" id="V1" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V11"><b>Trans_8</b></label>
+                <br>
+                <input placeholder="Amount" name="V11" id="V11" type="text" class="validate">
+              </div>
+              <div class="input-field col s4">
+                <label for="V24"><b>C_Trans</b></label>
+                <br>
+                <input placeholder="Amount" name="V24" id="V24" type="text" class="validate">
+              </div>
+            </div>
+            <br/>
+            <div class="row btn center">
+              <button type="submit" class="btn-large waves-effect waves-light orange">Result</button>
+            </div>
+          </form>
+        </div>
+        <br>
+        <div class="row center">
+          <h6 class="waves-effect waves-light orange">{{pred}}<br></h6>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</div>
+</body>
+</html>

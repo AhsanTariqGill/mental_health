@@ -1,0 +1,204 @@
+/* .input-field{
+    display: flex;
+    justify-content: center;
+}
+label{
+    margin: 10px 30px;
+}
+input{
+    padding: 10px 20px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+button{
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+h1,h5{
+    text-align: center;
+} */
+/* General Styles */
+
+
+  
+.header.col.s12 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333; /* Adjust the color as needed */
+    margin-bottom: 20px;
+  }
+  
+  .header.col.s12::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #ff6f61; /* Underline color */
+    margin: 10px auto; /* Adjust spacing */
+  }
+  
+  /* Additional styles for the paragraph (optional) */
+  .header.col.s12.light {
+    font-style: italic;
+    color: #555; /* Adjust the color as needed */
+    margin-top: 50px;
+  }
+  
+  /* Additional styles for line break (optional) */
+  .header.col.s12 br {
+    display: none; /* Hide line break on larger screens */
+  }
+  
+  /* Show line break on smaller screens */
+  @media only screen and (max-width: 600px) {
+    .header.col.s12 br {
+      display: block;
+      content: ' ';
+      margin-top: 5px; /* Adjust spacing */
+    }
+  }
+
+
+
+
+
+  /* Additional Styles for Button Animation */
+.btn-large {
+    font-size: 1.2em;
+    width: 100%;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .btn-large:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Optional: Add more specific styles for the button if needed */
+  .btn-large.orange {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+  }
+  
+  .btn-large.orange:hover {
+    background-color: #e66053;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+  .waves-effect.waves-light.orange {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #8d534e; /* Text color */
+    text-transform: uppercase;
+    margin-top: 20px; /* Adjust spacing */
+  }
+  
+  /* Optional: Animation on hover */
+  .waves-effect.waves-light.orange:hover {
+    text-decoration: underline; /* Example: Underline on hover */
+  }
+  
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .header {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .row {
+    margin-bottom: 20px;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+  }
+  
+  .input-field {
+    margin-bottom: 15px;
+    width: calc(50% - 10px); /* Subtracting margin */
+  }
+  
+  .label-field {
+    margin-bottom: 15px;
+    width: calc(50% - 10px); /* Subtracting margin */
+  }
+  
+  /* Adjust the spacing between input fields */
+  .input-field:not(:last-child),
+  .label-field:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .btn {
+    border-radius: 5px;
+    padding:  1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+  }
+  
+  .btn:hover {
+    background-color: #e66053;
+  }
+  
+  .orange-text {
+    color: #ff6f61;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-large {
+    font-size: 1.2em;
+    width: 100%;
+  }
+  
+  /* Additional styles can be added here */
+  
